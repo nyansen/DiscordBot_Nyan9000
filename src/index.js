@@ -40,10 +40,10 @@ client.on("interactionCreate", async(interaction) => {
 })
 
 client.on('voiceStateUpdate', (oldState, newState) => {
-    if(newState.channelId === '919971427673849947') {
+    if(newState.channelId === process.env.CHANNEL_ID) {
         newState.guild.channels.create(`${newState.member.displayName}'s VC`, {
             type: 'GUILD_VOICE',
-            parent: '589107550520082591',
+            parent: process.env.PARENT_CHANNEL_ID,
             permissionOverwrites: [{
                 id: newState.member.user,
                 allow: ["MANAGE_CHANNELS"]
@@ -53,8 +53,8 @@ client.on('voiceStateUpdate', (oldState, newState) => {
         })
     }
     if(oldState.channelId != null) {
-        if(oldState.channel.parentId == '589107550520082591') {
-            if(oldState.channelId != '919971427673849947') {
+        if(oldState.channel.parentId == process.env.PARENT_CHANNEL_ID) {
+            if(oldState.channelId != process.env.CHANNEL_ID) {
                 if(oldState.channel.members.size == 0) {
                     oldState.channel.delete('Delete empty Channel.')
                 }
