@@ -15,3 +15,4 @@ const restClient = new REST({version: "9"}).setToken(process.env.DISCORD_BOT_TOK
 restClient.put(Routes.applicationGuildCommands(process.env.DISCORD_APPLICATION_ID, process.env.DISCORD_GUILD_ID),
 {body: commands})
 .then(() => console.log("Successully registerd commands"))
+.catch(console.error)
