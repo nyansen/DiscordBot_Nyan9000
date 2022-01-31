@@ -10,6 +10,9 @@
   },
   "author": "Nico Jensen",
   "license": "ISC",
+  "engines": {
+    "node": "16.x"
+  },
   "dependencies": {
     "@discordjs/builders": "^0.9.0",
     "@discordjs/rest": "^0.1.0-canary.0",
