@@ -4,10 +4,10 @@ const {REST} = require("@discordjs/rest")
 const {Routes} = require("discord-api-types/v9")
 const commands = []
 
-const CommandFiles = fs.readdirSync("./src/commands").filter(file => file.endsWith(".js"))
+const commandFiles = fs.readdirSync("./src/commands").filter(file => file.endsWith(".js"))
 
-CommandFiles.forEach(CommandFile => {
-    const command = require(`./commands/${CommandFile}`)
+commandFiles.forEach(commandFile => {
+    const command = require(`./commands/${commandFile}`)
     commands.push(command.data.toJSON())
 })
 
