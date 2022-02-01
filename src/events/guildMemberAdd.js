@@ -11,7 +11,7 @@ module.exports = {
             embeds: [
                 new MessageEmbed()
                     .setTitle("")
-                    .setDescription(`Moin ${member.toString()}\n\nHerzlich Willkommen und viel Spaß`)
+                    .setDescription(`Moin ${member.toString()}!\n\nHerzlich Willkommen und viel Spaß.`)
                     .setThumbnail(member.user.displayAvatarURL())
                     .setColor("BLURPLE")
             ]
