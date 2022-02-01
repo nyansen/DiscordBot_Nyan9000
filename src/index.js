@@ -7,10 +7,15 @@ const client = new Client({intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_V
 client.commands = new Collection()
 
 const CommandFiles = fs.readdirSync("./src/commands").filter(file => file.endsWith(".js"))
-
 CommandFiles.forEach(CommandFile => {
     const command = require(`./commands/${CommandFile}`)
     client.commands.set(command.data.name, command)
+})
+
+const EventFiles = fs.readdirSync("./src/events").filter(file => file.endsWith(".js"))
+EventFiles.forEach(EventFile => {
+    const event = require(`./events/${EventFile}`)
+    client.on(event.name, (...args) => event.execute(...args))
 })
 
 client.once('ready', () => {
